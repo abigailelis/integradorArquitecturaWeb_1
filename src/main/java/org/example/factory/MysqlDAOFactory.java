@@ -1,8 +1,8 @@
 package org.example.factory;
 
 import org.example.dao.ClienteDAO;
-import org.example.dao.DAO_Persona;
 import org.example.dao.FacturaDAO;
+import org.example.dao.FacturaProductoDAO;
 import org.example.dao.ProductoDAO;
 
 import java.lang.reflect.InvocationTargetException;
@@ -23,7 +23,7 @@ public class MysqlDAOFactory extends AbstractFactory{
     private MysqlDAOFactory(){}
 
     /**
-     * Retorna la instancia mysql
+     * Retorna la unica instancia mysql (Singleton)
      * @return instance
      */
     public static synchronized MysqlDAOFactory getInstance(){
@@ -78,8 +78,10 @@ public class MysqlDAOFactory extends AbstractFactory{
         return new ProductoDAO(createConnection());
     }
 
+    
     @Override
     public FacturaProductoDAO getFacturaProductoDAO() throws SQLException {
         return new FacturaProductoDAO(createConnection());
     }
+    
 }

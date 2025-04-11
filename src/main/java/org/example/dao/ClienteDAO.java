@@ -2,6 +2,9 @@ package org.example.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.example.entities.Cliente;
 
 public class ClienteDAO {
 
@@ -15,7 +18,7 @@ public class ClienteDAO {
         String query = "INSERT INTO cliente (idCliente, nombre, email) VALUES (?, ?, ?)";
         PreparedStatement ps = null;
 
-        ps = connection.prepareStatment(query);
+        ps = connection.prepareStatement(query);
         ps.setInt(1, cliente.getIdCliente());
         ps.setString(2, cliente.getNombre());
         ps.setString(3, cliente.getEmail());
