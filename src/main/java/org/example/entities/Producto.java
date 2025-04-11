@@ -1,28 +1,31 @@
 package org.example.entities;
 
 public class Producto {
-    private int idProduct;
-    private String name;
-    private float value;
-
-    public Producto(String name, float value) {
-        this.name = name;
-        this.value = value;
+    private int idProducto;
+    private String nombre;
+    private float valor;
+    public Producto(String nombre, float valor) {
+        this.nombre = nombre;
+        this.valor = valor;
     }
 
-    public String getName() {
-        return name;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public float getValue() {
-        return value;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public float getValor() {
+        return valor;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 }
