@@ -1,4 +1,33 @@
 package org.example.entities;
 
 public class Cliente {
+
+    private int idCliente;
+    private String nombre;
+    private String email;
+
+    public Cliente(String nombre, String email) {
+        this.nombre = nombre;
+        this.email = email;
+    }
+
+    public int getIdCliente() {
+        return this.idCliente;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
