@@ -5,6 +5,7 @@ import org.example.dao.FacturaDAO;
 import org.example.dao.FacturaProductoDAO;
 import org.example.dao.ProductoDAO;
 import org.example.dto.ClienteDTO;
+import org.example.dto.ProductoDTO;
 import org.example.factory.AbstractFactory;
 import org.example.utils.HelperMysql;
 
@@ -25,6 +26,11 @@ public class Main {
         ClienteDAO cliente = chosenFactory.getClienteDAO();
         FacturaDAO factura = chosenFactory.getFacturaDAO();
         FacturaProductoDAO facturaProducto = chosenFactory.getFacturaProductoDAO();
+
+        //obtener producto que mas recaudo
+
+        ProductoDTO productoDTO = producto.getProductoMayorRecaudacion();
+        System.out.println(productoDTO);
 
         //Obtener lista de clientes con mayor facturación
         List<ClienteDTO> clientesDTO = cliente.getClientesMayorFacturacion();
