@@ -26,13 +26,13 @@ public class Main {
         FacturaDAO factura = chosenFactory.getFacturaDAO();
         FacturaProductoDAO facturaProducto = chosenFactory.getFacturaProductoDAO();
 
-        //Obtener lista de clientes con mayor facturación
+        //4. Obtener lista de clientes con mayor facturación
         List<ClienteDTO> clientesDTO = cliente.getClientesMayorFacturacion();
-
 
         for(ClienteDTO clienteDTO : clientesDTO){
             System.out.println(clienteDTO);
         }
-        System.out.println(clientesDTO.size());
+
+        System.out.println("Cantidad de clientes:" + clientesDTO.size());
     }
 }
