@@ -48,11 +48,12 @@ public class ClienteDAO {
      * @throws SQLException
      */
     public List<ClienteDTO> getClientesMayorFacturacion() throws SQLException {
-        String query = "SELECT c.*, fp.cantidad * p.valor as total_facturado " +
+        String query = "SELECT DISTINCT c.*, SUM(fp.cantidad * p.valor) as total_facturado " +
                         "FROM cliente c, factura f, facturaProducto fp, producto p " +
                         "WHERE c.idCliente = f.idCliente AND " +
                             "f.idFactura = fp.idFactura AND " +
                             "fp.idProducto = p.idProducto " +
+                        "GROUP BY c.idCliente, c.nombre " +
                         "ORDER BY total_facturado DESC";
 
         PreparedStatement ps = connection.prepareStatement(query);
