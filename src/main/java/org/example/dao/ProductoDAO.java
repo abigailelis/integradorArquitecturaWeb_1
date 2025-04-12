@@ -37,4 +37,24 @@ public class ProductoDAO {
         connection.commit();
     }
 
+    public ProductoDTO getProductoMayorRecaudacion() throws SQLException {
+        String query = SELECT p., fp.cantidad  p.valor as recaudado  +
+                FROM producto p INNER JOIN factura_producto fp +
+                ON p.idProducto = fp.idProducto +
+                ORDER BY total_recaudado DESC +
+                LIMIT 1;
+
+        PreparedStatement ps = connection.prepareStatement(query);
+        ResultSet rs = ps.executeQuery(query);
+
+        String nombre = rs.getString(nombre);
+        int recaudado = rs.getInt(recaudado);
+
+        ProductoDTO productoDTO = new ProductoDAO(nombre, recaudado);
+
+        return productoDTO;
+    }
+
+
+
 }
