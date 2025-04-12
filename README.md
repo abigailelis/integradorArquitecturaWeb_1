@@ -39,3 +39,15 @@ Este proyecto implementa un conjunto de funcionalidades que interactúan con una
 ```bash
 git clone https://github.com/abigailelis/integradorArquitecturaWeb_1.git
 ```
+
+---
+
+## 🛢️ Conexión a la Base de Datos
+
+Este proyecto se conecta a una base de datos con la siguiente configuración:
+
+- **Usuario**: `root`
+- **Contraseña**: (vacía)
+- **Nombre de la base de datos**: `integrador1`
+
+
