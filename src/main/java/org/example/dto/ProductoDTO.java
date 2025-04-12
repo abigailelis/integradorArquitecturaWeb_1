@@ -21,6 +21,6 @@ public class ProductoDTO {
 
     @Override
     public String toString() {
-        return "Nombre: " + this.nombre + ", recaudado: " + this.recaudado;
+        return "Nombre: " + this.nombre + " recaudado: " + this.recaudado;
     }
 }
