@@ -14,7 +14,7 @@ public class HelperMysql {
 
     public HelperMysql() throws SQLException {
         String driver = "com.mysql.cj.jdbc.Driver";
-        String uri = "jdbc:mysql://localhost:3306/jdbc_integrador";
+        String uri = "jdbc:mysql://localhost:3306/integrador1";
 
         try {
             Class.forName(driver).getDeclaredConstructor().newInstance();
