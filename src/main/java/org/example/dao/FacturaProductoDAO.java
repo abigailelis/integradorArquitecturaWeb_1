@@ -5,7 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import org.example.entities.FacturaProducto;
 
-public class FacturaProductoDAO {
+/**
+ * Clase DAO para la entidad FacturaProducto.
+ * Gestiona las consultas sql a la base de datos
+ * @author Brost Simón
+ */
+
+ public class FacturaProductoDAO {
     
     private final Connection connection;
 
@@ -13,7 +19,13 @@ public class FacturaProductoDAO {
         this.connection = connection;
     }
       
-   
+    
+    /**
+     * Agrega una facturaProducto a la base de datos
+     * @param facturaProducto FacturaProducto a agregar
+     * @throws SQLException
+     */
+
      public void addFacturaProducto(FacturaProducto facturaProducto) throws SQLException {
         String query = "INSERT INTO facturaProducto (idProducto, idFactura, cantidad) VALUES (?, ?, ?)";
 
