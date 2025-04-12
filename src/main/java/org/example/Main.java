@@ -27,7 +27,6 @@ public class Main {
         //Obtener lista de clientes con mayor facturación
         List<ClienteDTO> clientesDTO = cliente.getClientesMayorFacturacion();
 
-
         for(ClienteDTO clienteDTO : clientesDTO){
             System.out.println(clienteDTO);
         }

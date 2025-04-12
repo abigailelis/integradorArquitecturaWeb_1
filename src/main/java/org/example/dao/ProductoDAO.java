@@ -2,9 +2,7 @@ package org.example.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.example.dto.ProductoDTO;
 import org.example.entities.Producto;
 
 /**
@@ -38,28 +36,5 @@ public class ProductoDAO {
         ps.close();
         connection.commit();
     }
-
-    public ProductoDTO getProductoMayorRecaudacion() throws SQLException {
-        String query = "SELECT p.*, fp.cantidad * p.valor as recaudado " +
-                "FROM producto p INNER JOIN factura_producto fp" +
-                "ON p.idProducto = fp.idProducto" +
-                "ORDER BY recaudado DESC" +
-                "LIMIT 1";
-
-        PreparedStatement ps = connection.prepareStatement(query);
-        ResultSet rs = ps.executeQuery(query);
-
-        ProductoDTO productoDTO = null;
-
-        String nombre = rs.getString("nombre");
-        float recaudado = rs.getFloat("recaudado");
-
-        productoDTO = new ProductoDTO(nombre, recaudado);
-
-        return productoDTO;
-    }
-
-
-
 
 }
