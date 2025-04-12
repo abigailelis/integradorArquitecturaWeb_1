@@ -40,9 +40,10 @@ public class ProductoDAO {
     }
 
     public ProductoDTO getProductoMayorRecaudacion() throws SQLException {
-        String query = "SELECT p.*, fp.cantidad * p.valor as recaudado " +
+        String query = "SELECT p.*,  SUM(fp.cantidad * p.valor) as recaudado " +
                 "FROM producto p INNER JOIN facturaProducto fp " +
                 "ON p.idProducto = fp.idProducto " +
+                "GROUP BY p.idProducto, p.nombre " +
                 "ORDER BY recaudado DESC " +
                 "LIMIT 1";
 
