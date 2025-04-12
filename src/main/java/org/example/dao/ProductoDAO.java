@@ -43,7 +43,7 @@ public class ProductoDAO {
         String query = "SELECT p.*, fp.cantidad * p.valor as recaudado " +
                 "FROM producto p INNER JOIN factura_producto fp" +
                 "ON p.idProducto = fp.idProducto" +
-                "ORDER BY total_recaudado DESC" +
+                "ORDER BY recaudado DESC" +
                 "LIMIT 1";
 
         PreparedStatement ps = connection.prepareStatement(query);
