@@ -1,7 +1,8 @@
 package org.example.dao;
 
 import java.sql.Connection;
-
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import org.example.entities.FacturaProducto;
 
 public class FacturaProductoDAO {
@@ -19,7 +20,7 @@ public class FacturaProductoDAO {
         PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, facturaProducto.getIdProducto());
-        ps.setString(2, facturaProducto.getIdCliente());
+        ps.setInt(2, facturaProducto.getIdCliente());
         ps.setFloat(3, facturaProducto.getCantidad());
         ps.executeUpdate();
         System.out.println("FacturaProducto insertado exitosamente.");

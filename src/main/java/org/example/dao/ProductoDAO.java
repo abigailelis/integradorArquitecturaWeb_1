@@ -23,7 +23,7 @@ public class ProductoDAO {
      * @throws SQLException
      */
     public void addProducto(Producto producto) throws SQLException {
-        String query = "INSERT INTO Prodcuto (idProducto, nombre, valor) VALUES (?, ?, ?)";
+        String query = "INSERT INTO producto (idProducto, nombre, valor) VALUES (?, ?, ?)";
 
         PreparedStatement ps = connection.prepareStatement(query);
 

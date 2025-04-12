@@ -18,6 +18,7 @@ public class FacturaProducto {
     public int getIdCliente() {
         return idCliente;
     }
+
     public int getCantidad(){
         return cantidad;
     }
