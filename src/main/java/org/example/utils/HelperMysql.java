@@ -11,10 +11,11 @@ import java.sql.*;
 
 public class HelperMysql {
     private Connection connection = null;
+    private final String DB_NAME = "integrador1";
+    private String uri = "jdbc:mysql://localhost:3306/" + DB_NAME;
 
     public HelperMysql() throws SQLException {
         String driver = "com.mysql.cj.jdbc.Driver";
-        String uri = "jdbc:mysql://localhost:3306/integrador1";
 
         try {
             Class.forName(driver).getDeclaredConstructor().newInstance();
@@ -25,12 +26,9 @@ public class HelperMysql {
             System.exit(1);
         }
 
-        try {
-            connection = DriverManager.getConnection(uri, "root", "");
-            connection.setAutoCommit(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        connection = DriverManager.getConnection(uri, "root", "");
+        connection.setAutoCommit(false);
+
     }
 
     public void closeConnection() {
@@ -40,6 +38,20 @@ public class HelperMysql {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * Crea la base de datos si no existe
+     */
+    private void createDataBase() {
+        try (Connection connection = DriverManager.getConnection(uri, "root", "");
+             Statement stmt = connection.createStatement()) {
+            String sql = "CREATE DATABASE IF NOT EXISTS " + DB_NAME;
+            stmt.executeUpdate(sql);
+            System.out.println("Base de datos '" + DB_NAME + "' creada o ya existente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
