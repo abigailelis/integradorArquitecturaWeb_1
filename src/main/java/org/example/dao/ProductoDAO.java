@@ -50,15 +50,13 @@ public class ProductoDAO {
         ResultSet rs = ps.executeQuery(query);
 
         ProductoDTO productoDTO = null;
-    if (rs.next()) {
-        String nombre = rs.getString("nombre");
-        float recaudado = rs.getFloat("recaudado");
-        productoDTO = new ProductoDTO(nombre, recaudado);
-    }
+
+        if (rs.next()) {
+            String nombre = rs.getString("nombre");
+            float recaudado = rs.getFloat("recaudado");
+            productoDTO = new ProductoDTO(nombre, recaudado);
+        }
         return productoDTO;
     }
-
-
-
 
 }

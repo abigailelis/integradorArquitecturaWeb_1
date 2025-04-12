@@ -37,6 +37,7 @@ public class Main {
 
         //obtener el producto que mas recuado
         ProductoDTO productoDTO = producto.getProductoMayorRecaudacion();
+
         if (productoDTO == null) {
             System.out.println("\n\nNo se encontro el producto");
         }else {
