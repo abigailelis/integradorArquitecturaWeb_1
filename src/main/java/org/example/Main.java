@@ -7,8 +7,6 @@ import org.example.dao.ProductoDAO;
 import org.example.dto.ClienteDTO;
 import org.example.factory.AbstractFactory;
 import org.example.utils.HelperMysql;
-
-import java.sql.SQLException;
 import java.util.List;
 
 public class Main {
@@ -26,13 +24,13 @@ public class Main {
         FacturaDAO factura = chosenFactory.getFacturaDAO();
         FacturaProductoDAO facturaProducto = chosenFactory.getFacturaProductoDAO();
 
-        //4. Obtener lista de clientes con mayor facturación
+        //Obtener lista de clientes con mayor facturación
         List<ClienteDTO> clientesDTO = cliente.getClientesMayorFacturacion();
+
 
         for(ClienteDTO clienteDTO : clientesDTO){
             System.out.println(clienteDTO);
         }
-
-        System.out.println("Cantidad de clientes:" + clientesDTO.size());
+        System.out.println(clientesDTO.size());
     }
 }
