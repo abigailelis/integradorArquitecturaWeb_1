@@ -15,7 +15,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         HelperMysql db_mysql = new HelperMysql();
-        db_mysql.createTables();
         db_mysql.dropTables();
         db_mysql.createTables();
         db_mysql.populateDB();

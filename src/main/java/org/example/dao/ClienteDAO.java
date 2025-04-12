@@ -49,10 +49,10 @@ public class ClienteDAO {
      */
     public List<ClienteDTO> getClientesMayorFacturacion() throws SQLException {
         String query = "SELECT c.*, fp.cantidad * p.valor as total_facturado " +
-                        "FROM cliente c, factura f, factura_producto fp, producto p" +
-                        "WHERE c.idCliente = f.idCliente AND" +
-                            "f.idFactura = fp.idFactura AND" +
-                            "fp.idProducto = p.idProducto" +
+                        "FROM cliente c, factura f, facturaProducto fp, producto p " +
+                        "WHERE c.idCliente = f.idCliente AND " +
+                            "f.idFactura = fp.idFactura AND " +
+                            "fp.idProducto = p.idProducto " +
                         "ORDER BY total_facturado DESC";
 
         PreparedStatement ps = connection.prepareStatement(query);
